@@ -1,0 +1,178 @@
+:root{col1: #391d6f;
+        
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.game-container{
+    width: 100%;
+    height: 100vh;
+    background-color: #391d6f;
+    display: flex;
+    justify-content: space-between;
+    }
+
+.left{
+    width: 70%;
+    height: 100%;
+    /*background-color: antiquewhite;*/
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid green;
+    justify-content: center;
+
+}
+
+.right{
+    width:30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-container{
+    width: 100%;
+    /*background-color: aliceblue;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hr{
+   width: 50%;
+   height: 3px;
+   background-color: white;
+
+}
+
+.question-container p{
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    border: 4px solid white;
+    padding: 10px 20px;
+}
+
+answer-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.answer-container .answerin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.answer-container .answerin p{
+    color: white;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    border: 4px solid white;
+    padding: 10px 20px;
+}
+
+.answer-container .answerin p span{
+    color: gold;
+}
+
+.answer-container .answerin p:hover{
+    background-color: white;
+    cursor: pointer;
+    color: #391d6f;
+}
+
+/*right section start here*/
+
+.right{
+     width: 30%;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+}
+
+.progress{
+    width: 70%;
+   /* background-color: white;*/
+    align-self: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.progress-in{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 20px;
+    /*background-color: aquamarine;*/
+    margin: 5px 0px;
+    font-size: 25px;
+    color: white;
+}
+
+.progress-in1{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 20px;
+    /*background-color: aquamarine;*/
+    margin: 5px 0px;
+    font-size: 30px;
+    color: gold;
+}
+
+.progress-in:hover, .progress-in1:hover, .progress .active{
+    background-color: gold;
+    color: black;
+    cursor: pointer;
+}
+
+h1{
+    width: 100%;
+    height: 3px;
+    background-color:  red;
+}
+
+.lifelines{
+    display: flex;
+    width: 100%;
+    height: 40%;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.lifelinein{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.lifeline-in img{
+    width: 50%;
+    margin: 0px 20px;
+    object-fit: contain;
+}
+
+.lifeline-in:hover{
+    box-shadow: 0px 0px 10px 5px white;
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: all 0.5 ease-in-out;
+}
+
+
