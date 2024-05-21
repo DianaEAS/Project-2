@@ -335,57 +335,21 @@ const q12set = [
 
 
 const progress_set = [
-    
-        {
-            id: 1,
-            price: "£0"
-        },
-        {
-            id: 2,
-            price: "£10,000"
-        },
-        {
-            id: 3,
-            price: "£30,000"
-        },
-        {
-            id: 4,
-            price: "£50,000"
-        },
-        {
-            id: 5,
-            price: "£80,000"
-        },
-        {
-            id: 6,
-            price: "£100,000"
-        },
-        {
-            id: 7,
-            price: "£200,000"
-        },
-        {
-            id: 8,
-            price: "£300,000"
-        },
-        {
-            id: 9,
-            price: "£400,000"
-        },
-        {
-            id: 10,
-            price: "£500,000"
-        },
-        {
-            id: 11,
-            price: "£700,000"
-        },
-        {
-            id: 12,
-            price: "£1,000,000"
-        }
-    ];
+    { id: 1, price: 0 },
+    { id: 2, price: 10000 },
+    { id: 3, price: 30000 },
+    { id: 4, price: 50000 },
+    { id: 5, price: 80000 },
+    { id: 6, price: 100000 },
+    { id: 7, price: 200000 },
+    { id: 8, price: 300000 },
+    { id: 9, price: 400000 },
+    { id: 10, price: 500000 },
+    { id: 11, price: 700000 },
+    { id: 12, price: 1000000 }
+];
 
+// SORT THE PRICES DESCENDING ORDER, format prices 
     const show_progress_set = (progress_set) =>{
         let progress_div = document.querySelector(".progress")
         let progress_divset_data = '';
@@ -393,18 +357,34 @@ const progress_set = [
 
         progress_set = progress_set.sort((a,b)=> b.price-a.price);
         progress_set.forEach((item,index)=>{
-           // if(item.price == 10000) || (item.price == 30000) 
-          // console.log(item)    
-           item.price = item.price.toLocaleString();
-           //console.log(item.price)  
-           progress_divset_data += `
-           <div class="progress-in">£ ${item.price}</div>
-           ` 
+           if(item.price == 10000 || item.price == 100000 ||
+             item.price == 400000 || item.price == 1000000)
+             {
+                item.price = item.price.toLocaleString();
+                //console.log(item.price)  
+                progress_divset_data += `
+                <div class="progress-in1">£ ${item.price}</div>
+            `
+            }
+            else{
+            // console.log(item)    
+                item.price = item.price.toLocaleString();
+                //console.log(item.price)  
+                progress_divset_data += `
+                <div class="progress-in">£ ${item.price}</div>
+                ` 
+            }
         })
         progress_div.innerHTML = progress_divset_data;
             
     }
      show_progress_set(progress_set)
+
+     let current_question = 1;
+     let score = 0;
+     //target ,y question
+
+     const question = document.query
     
   
 
