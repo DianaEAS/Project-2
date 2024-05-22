@@ -334,7 +334,7 @@ const q12set = [
 ];
 
 
-const progress_set = [
+const progressSet = [
     { id: 1, price: 0 },
     { id: 2, price: 10000 },
     { id: 3, price: 30000 },
@@ -349,14 +349,14 @@ const progress_set = [
     { id: 12, price: 1000000 }
 ];
 
-// SORT THE PRICES DESCENDING ORDER, format prices 
-    const show_progress_set = (progress_set) =>{
+    // SORT THE PRICES DESCENDING ORDER, format prices 
+    const showProgressSet = (progressSet) =>{
         let progress_div = document.querySelector(".progress")
         let progress_divset_data = '';
         //console.log(progress_div)
 
-        progress_set = progress_set.sort((a,b)=> b.price-a.price);
-        progress_set.forEach((item,index)=>{
+        progressSet = progressSet.sort((a,b)=> b.price-a.price);
+        progressSet.forEach((item,index)=>{
            if(item.price == 10000 || item.price == 100000 ||
              item.price == 400000 || item.price == 1000000)
              {
@@ -378,13 +378,55 @@ const progress_set = [
         progress_div.innerHTML = progress_divset_data;
             
     }
-     show_progress_set(progress_set)
+     showProgressSet(progressSet)
 
-     let current_question = 1;
+     let currentQuestion = 2;
      let score = 0;
      //target ,y question
 
-     const question = document.query
+     const question = document.querySelector(".question-container p")
+
+     const allAnswersCont = document.querySelector(".answer-container")
+
+     const setQuestioAndAnswer = (currentQuestion)=>{
+        if(currentQuestion == 1){
+            
+
+            else if(currentQuestion == 2){
+            let random = Math.floor(Math.random()*q2set.length)
+            let randomQuestion = q2set[random]
+            question.innerHTML = randomQuestion.question;
+               
+            allAnswersCont.innerHTML = `
+            <div class="answerin">
+                    <div class="hr"></div>
+                    <p>
+                        <span>A.</span> ${randomQuestion.a}
+                    </p>
+                    <div class="hr"></div>
+                    <p>
+                        <span>B.</span> ${randomQuestion.b}
+                    </p>
+                    <div class="hr"></div>
+                </div>
+
+                <div class="answerin">
+                    <div class="hr"></div>
+                    <p>
+                        <span>C.</span> ${randomQuestion.c}
+                    </p>
+                    <div class="hr"></div>
+                    <p>
+                        <span>D.</span> ${randomQuestion.d}
+                    </p>
+                    <div class="hr"></div>
+                </div>`        
+            }
+        
+        //end of condition
+        }     
+    }
+     setQuestioAndAnswer(currentQuestion)
     
   
 
