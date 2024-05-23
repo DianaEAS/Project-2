@@ -380,421 +380,131 @@ const progressSet = [
     }
      showProgressSet(progressSet)
 
-     let currentQuestion = 10;
+     let currentQuestion = 1;
      let score = 0;
      //target ,y question
 
      const question = document.querySelector(".question-container p")
-
      const allAnswersCont = document.querySelector(".answer-container")
 
+    //Create a function that absorbs all options to apply to questions
+    const setAllAnswersCont = (randomQuestion) =>{
+        allAnswersCont.innerHTML = `
+        <div class="answerin">
+            <div class="hr"></div>
+            <p onClick="selectOption('${randomQuestion.a}','${randomQuestion.correct}')"> 
+                <span>A.</span> ${randomQuestion.a}
+            </p>
+            <div class="hr"></div>
+            <p onClick="selectOption('${randomQuestion.b}','${randomQuestion.correct}')">
+                <span>B.</span> ${randomQuestion.b}
+            </p>
+            <div class="hr"></div>
+        </div>
+
+        <div class="answerin">
+            <div class="hr"></div>
+            <p onClick="selectOption('${randomQuestion.c}','${randomQuestion.correct}')">
+                <span>C.</span> ${randomQuestion.c}
+            </p>
+            <div class="hr"></div>
+            <p onClick="selectOption('${randomQuestion.d}','${randomQuestion.correct}')">
+                <span>D.</span> ${randomQuestion.d}
+            </p>
+            <div class="hr"></div>
+        </div>
+      `    
+    }
+    //================================================================
     const setQuestionAndAnswer = (currentQuestion)=>{
         if(currentQuestion == 1) {
             //else if(currentQuestion == 1){
             let random = Math.floor(Math.random() * q1set.length)
             let randomQuestion = q1set[random]
             question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+        }       
                
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                    <div class="hr"></div>
-                    <p>
-                        <span>A.</span> ${randomQuestion.a}
-                    </p>
-                    <div class="hr"></div>
-                    <p>
-                        <span>B.</span> ${randomQuestion.b}
-                    </p>
-                    <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                    <div class="hr"></div>
-                    <p>
-                        <span>C.</span> ${randomQuestion.c}
-                    </p>
-                    <div class="hr"></div>
-                    <p>
-                        <span>D.</span> ${randomQuestion.d}
-                    </p>
-                    <div class="hr"></div>
-                </div>
-                `        
-        }
+        
         else if(currentQuestion == 2) {            
             let random = Math.floor(Math.random() * q2set.length)
             let randomQuestion = q2set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)
         }
 
         else if(currentQuestion == 3) {            
             let random = Math.floor(Math.random() * q3set.length)
             let randomQuestion = q3set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)
         }
 
         else if(currentQuestion == 4) {            
             let random = Math.floor(Math.random() * q4set.length)
             let randomQuestion = q4set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)
         }
 
         else if(currentQuestion == 5) {            
             let random = Math.floor(Math.random() * q5set.length)
             let randomQuestion = q5set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)
         }
 
         else if(currentQuestion == 6) {            
             let random = Math.floor(Math.random() * q6set.length)
             let randomQuestion = q6set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)
         }
 
         else if(currentQuestion == 7) {            
             let random = Math.floor(Math.random() * q7set.length)
             let randomQuestion = q7set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)
         }
 
         else if(currentQuestion == 8) {            
             let random = Math.floor(Math.random() * q8set.length)
             let randomQuestion = q8set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)
         }
 
         else if(currentQuestion == 9) {            
             let random = Math.floor(Math.random() * q9set.length)
             let randomQuestion = q9set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)               
         }
 
         else if(currentQuestion == 10) {            
             let random = Math.floor(Math.random() * q10set.length)
             let randomQuestion = q10set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)                 
         }
 
         else if(currentQuestion == 11) {            
             let random = Math.floor(Math.random() * q11set.length)
             let randomQuestion = q11set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)
+                     
         }
 
         else if(currentQuestion == 12) {            
             let random = Math.floor(Math.random() * q12set.length)
             let randomQuestion = q12set[random]
             question.innerHTML = randomQuestion.question;
-
-            question.innerHTML = randomQuestion.question;
-               
-            allAnswersCont.innerHTML = `
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>A.</span> ${randomQuestion.a}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>B.</span> ${randomQuestion.b}
-                </p>
-                <div class="hr"></div>
-                </div>
-
-                <div class="answerin">
-                <div class="hr"></div>
-                <p>
-                    <span>C.</span> ${randomQuestion.c}
-                </p>
-                <div class="hr"></div>
-                <p>
-                    <span>D.</span> ${randomQuestion.d}
-                </p>
-                <div class="hr"></div>
-                </div>
-            `     
+            setAllAnswersCont(randomQuestion)
         }
     }
+
     setQuestionAndAnswer(currentQuestion)
 
     const setActiveProgressItem = (currentQuestion)=>{
@@ -808,6 +518,24 @@ const progressSet = [
 
     }
     setActiveProgressItem(currentQuestion)
+    
+    //FUNCTION TO SELECT AN OPTION AND ANSWER
+    const selectOption = (
+        selectOption, answer
+    )=>{
+       // alert(selectOption + "            " + answer)
+       if(selectOption == answer){
+            currentQuestion++;
+            setActiveProgressItem(currentQuestion)
+            setQuestionAndAnswer(currentQuestion)
+            alert("Correct Answer!")
+       }
+       else{
+            alert("Wrong Answer")
+       }
+
+       
+    }
     
   
 
