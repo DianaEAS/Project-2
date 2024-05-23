@@ -388,13 +388,11 @@ const progressSet = [
 
      const allAnswersCont = document.querySelector(".answer-container")
 
-     const setQuestioAndAnswer = (currentQuestion)=>{
-        if(currentQuestion == 1){
-            
-
-            else if(currentQuestion == 2){
-            let random = Math.floor(Math.random()*q2set.length)
-            let randomQuestion = q2set[random]
+     const setQuestionAndAnswer = (currentQuestion)=>{
+        if(currentQuestion == 1) {
+            //else if(currentQuestion == 1){
+            let random = Math.floor(Math.random() * q1set.length)
+            let randomQuestion = q1set[random]
             question.innerHTML = randomQuestion.question;
                
             allAnswersCont.innerHTML = `
@@ -421,12 +419,12 @@ const progressSet = [
                     </p>
                     <div class="hr"></div>
                 </div>`        
-            }
+        }
         
         //end of condition
-        }     
+           
     }
-     setQuestioAndAnswer(currentQuestion)
+     setQuestionAndAnswer(currentQuestion)
     
   
 
