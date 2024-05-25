@@ -513,30 +513,61 @@ const progressSet = [
         let progressSetDivData = progressSetDiv.querySelectorAll("div")
         let progressSetDivDataLength = progressSetDivData.length
 
+        //highlight item once is correct, deleting the previous highlighs
+        progressSetDivData.forEach((item)=>{
+            item.classList.remove("active")
+        })
+
         progressSetDivData[progressSetDivDataLength-currentQuestion].
         classList.add("active")
 
     }
     setActiveProgressItem(currentQuestion)
     
+    //time standar per question
+
+    let timer = document.querySelector(".timer p")
+    let time = 60;
+
     //FUNCTION TO SELECT AN OPTION AND ANSWER
     const selectOption = (
         selectOption, answer
     )=>{
        // alert(selectOption + "            " + answer)
-       if(selectOption == answer){
+        if(selectOption == answer && time>0){
             currentQuestion++;
+            if(currentQuestion>12){
+                alert("Congratulations! You have won £1.000.000")
+                time = 0;
+                return;
+            }
             setActiveProgressItem(currentQuestion)
             setQuestionAndAnswer(currentQuestion)
             alert("Correct Answer!")
-       }
-       else{
+            time = 60;
+        }
+        else if (time<= 0){
+            alert("Time is up")
+        }
+        else{
             alert("Wrong Answer")
-       }
-
-       
+        }
+                   
     }
-    //Min 21:55
+   
+
+    const setTimer = () => setInterval(
+        () =>{
+            if(time == 0){
+                cleanInterval(setTimer())
+                alert("Time is up")
+                return;
+            }
+            time--;
+            timer.innerHTML = "Time left: 00:" + time + "s";
+        }, 1000 
+    )
+    setTimer()
     
   
 
