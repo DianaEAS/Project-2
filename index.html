@@ -1,41 +1,51 @@
+<!-- Author: Diana Aguirre
+Date: June 2024
+Description: A simple quiz game that allows users to answer multiple-choice questions 
+and progress through the quiz until they complete all questions or run out of time -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata about the document -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the document -->
     <title>Document</title>
+    <!-- Link to external CSS stylesheet -->
     <link href="index.css" rel="stylesheet">
 </head>
-
 
 <style>
    
 </style>
 
 <body>
-   <div class = "game-container">
+   <!-- Container for the entire game interface -->
+   <div class="game-container">
+        <!-- Left section of the interface -->
         <div class="left">
-            <!--Create a timer-->
-            <div class ="timer">
+            <!-- Timer display -->
+            <div class="timer">
                 <p>Time Left: 1:00s</p>
             </div>
 
-
-
-            <!--Question and answer-->
+            <!-- Container for the question and answer section -->
             <div class="question-container">
                 <div class="hr"></div>
                 <p>---------------</p>
                 <div class="hr"></div>
             </div> 
 
+            <!-- Container for the answers -->
             <div class="answer-container">
                 <div class="answerin">
                     <div class="hr"></div>
+                    <!-- Answer option A -->
                     <p>
                         <span>A.</span>------
                     </p>
                     <div class="hr"></div>
+                    <!-- Answer option B -->
                     <p>
                         <span>B.</span>----------
                     </p>
@@ -44,10 +54,12 @@
 
                 <div class="answerin">
                     <div class="hr"></div>
+                    <!-- Answer option C -->
                     <p>
                         <span>C.</span>-----
                     </p>
                     <div class="hr"></div>
+                    <!-- Answer option D -->
                     <p>
                         <span>D.</span>---------
                     </p>
@@ -56,22 +68,27 @@
             </div>
         </div>
         
+        <!-- Right section of the interface -->
         <div class="right">
-            <div class = "lifelines">
-                
+            <!-- Container for the lifelines -->
+            <div class="lifelines">
+                <!-- Lifeline option 1: Phone a friend -->
                 <div class="lifeline-in">
                     <img src="img/friend.png" alt="">
                 </div>
+                <!-- Lifeline option 2: 50/50 -->
                 <div class="lifeline-in">
                     <img src="img/fifty.png" alt="">
                 </div>
+                <!-- Lifeline option 3: Ask the audience -->
                 <div class="lifeline-in">
                     <img src="img/public.png" alt="">
                 </div> 
             </div>
             <div class="hr1"></div>
-            <div class = "progress">
-                <!--
+            <!-- Container for the progress tracker -->
+            <div class="progress">
+                <!-- Commented out progress stages                
                 <div class="progress-in1">£1.000.0000</div>
                 <div class="progress-in">£700,000</div>
                 <div class="progress-in">£500,000</div>
@@ -89,6 +106,7 @@
         </div>
    </div>
    
+   <!-- Link to external JavaScript file -->
    <script src="script.js"></script>
 </body>
 

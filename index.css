@@ -1,53 +1,69 @@
-:root{col1: #391d6f;
-        
+/* Author: Diana Aguirre
+Date: March 2024
+Description: A simple quiz game that allows users to answer multiple-choice questions 
+and progress through the quiz until they complete all questions or run out of time */
+
+:root{
+    /* Define a color variable for reuse throughout the stylesheet */
+    --col1: #391d6f;
 }
+
 *{
+    /* Reset margin and padding for all elements */
     margin: 0;
     padding: 0;
 }
+
 .game-container{
+    /* Full width and height of the viewport */
     width: 100%;
     height: 100vh;
-    background-color: #391d6f;
+    /* Background color set to the variable defined in :root */
+    background-color: var(--col1);
+    /* Flexbox for layout, spaced between items */
     display: flex;
     justify-content: space-between;
-    }
+}
 
 .left{
+    /* Left section takes up 70% of the width and full height */
     width: 70%;
     height: 100%;
-    /*background-color: antiquewhite;*/
+    /* Flexbox column layout, centered content, with a right border */
     display: flex;
     flex-direction: column;
     border-right: 2px solid green;
     justify-content: center;
-
 }
 
 .right{
-    width:30%;
+    /* Right section takes up 30% of the width and full height */
+    width: 30%;
     height: 100%;
+    /* Flexbox column layout */
     display: flex;
     flex-direction: column;
 }
 
 .question-container{
+    /* Full width, flexbox centered content */
     width: 100%;
-    /*background-color: aliceblue;*/
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Space below for separation */
     margin-bottom: 20px;
 }
 
 .hr{
-   width: 50%;
-   height: 3px;
-   background-color: white;
-
+    /* Horizontal rule styled as a white bar */
+    width: 50%;
+    height: 3px;
+    background-color: white;
 }
 
 .question-container p{
+    /* Styling for question text: white color, large font, centered text */
     color: white;
     font-size: 25px;
     width: 100%;
@@ -56,20 +72,23 @@
     padding: 10px 20px;
 }
 
-answer-container{
+.answer-container{
+    /* Full width, flexbox column layout for answers */
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .answer-container .answerin{
+    /* Flexbox layout for individual answers, spaced and centered */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0px;
+    margin: 10px 0;
 }
 
 .answer-container .answerin p{
+    /* Styling for answer text: white color, medium font, centered text */
     color: white;
     font-size: 20px;
     width: 100%;
@@ -79,27 +98,30 @@ answer-container{
 }
 
 .answer-container .answerin p span{
+    /* Styling for answer letter labels: gold color */
     color: gold;
 }
 
 .answer-container .answerin p:hover{
+    /* Hover effect for answers: change background and text color */
     background-color: white;
     cursor: pointer;
-    color: #391d6f;
+    color: var(--col1);
 }
 
-/*right section start here*/
+/* Right section styles */
 
 .right{
-     width: 30%;
-     height: 100%;
-     display: flex;
-     flex-direction: column;
+    /* Repeated: Right section takes up 30% of the width and full height */
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .progress{
+    /* Width and height for the progress tracker, centered content */
     width: 70%;
-   /* background-color: white;*/
     align-self: center;
     height: 70%;
     display: flex;
@@ -108,42 +130,45 @@ answer-container{
 }
 
 .progress-in{
+    /* Styling for progress items: left-aligned, white text */
     width: 50%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 5px 20px;
-    /*background-color: aquamarine;*/
-    margin: 5px 0px;
+    margin: 5px 0;
     font-size: 20px;
     color: white;
 }
 
 .progress-in1{
+    /* Styling for highlighted progress items: left-aligned, gold text */
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 5px 20px;
-    /*background-color: aquamarine;*/
-    margin: 5px 0px;
+    margin: 5px 0;
     font-size: 25px;
     color: gold;
 }
 
 .progress-in:hover, .progress-in1:hover, .progress .active{
+    /* Hover and active state effect for progress items: gold background, black text */
     background-color: gold;
     color: black;
     cursor: pointer;
 }
 
 .hr1{
+    /* Horizontal rule styled as a white bar */
     width: 100%;
     height: 3px;
-    background-color:white;
+    background-color: white;
 }
 
 .lifelines{
+    /* Flexbox layout for lifelines, wrapped and centered content */
     display: flex;
     width: 100%;
     height: 30%;
@@ -153,6 +178,7 @@ answer-container{
 }
 
 .lifeline-in{
+    /* Styling for individual lifeline containers: centered content, white border and rounded corners */
     width: 25%;
     height: 40%;
     display: flex;
@@ -163,19 +189,22 @@ answer-container{
 }
 
 .lifeline-in img{
+    /* Styling for lifeline images: responsive width, centered within container */
     width: 80%;
-    margin: 0px 20px;
+    margin: 0 20px;
     object-fit: contain;
 }
 
 .lifeline-in:hover{
-    box-shadow: 0px 0px 15px 5px white;
+    /* Hover effect for lifelines: shadow, scale, transition */
+    box-shadow: 0 0 15px 5px white;
     transform: scale(1.1);
     cursor: pointer;
-    transition: all 0.5 ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .timer{
+    /* Styling for timer container: centered content, space below */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -184,9 +213,7 @@ answer-container{
 }
 
 .timer p{
+    /* Styling for timer text: gold color, large font */
     color: gold;
     font-size: 25px;
-
 }
-
-
