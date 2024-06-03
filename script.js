@@ -365,7 +365,7 @@ const progressSet = [
            if(item.price == 10000 || item.price == 100000 ||
              item.price == 400000 || item.price == 1000000)
              {
-                item.price = item.price.toLocalString();
+                item.price = item.price.toLocaleString();
                 //console.log(item.price)  
                 progress_divset_data += `
                 <div class="progress-in1">£ ${item.price}</div>
@@ -373,7 +373,7 @@ const progressSet = [
             }
             else{
             // console.log(item)    
-                item.price = item.price.toLocalString();
+                item.price = item.price.toLocaleString();
                 //console.log(item.price)  
                 progress_divset_data += `
                 <div class="progress-in">£ ${item.price}</div>
