@@ -1,9 +1,7 @@
-//Author: Diana Aguirre
-//Date: June 2024
-//Description: A simple quiz game that allows users to answer multiple-choice questions 
-//and progress through the quiz until they complete all questions or run out of time 
-
-// Question sets
+/* Author: Diana Aguirre
+Date: March 2024
+Description: A simple quiz game that allows users to answer multiple-choice questions 
+and progress through the quiz until they complete all questions or run out of time */
 
 const q1set = [
     
@@ -341,7 +339,6 @@ const q12set = [
 ];
 
 
-// Define an array of objects representing progress steps with their corresponding prices
 const progressSet = [
     { id: 1, price: 0 },
     { id: 2, price: 10000 },
@@ -357,183 +354,225 @@ const progressSet = [
     { id: 12, price: 1000000 }
 ];
 
-// Function to display progress steps, sorted in descending order of prices
-const showProgressSet = (progressSet) => {
-    // Select the div element with the class "progress"
-    let progress_div = document.querySelector(".progress");
+    // SORT THE PRICES DESCENDING ORDER, format prices 
+    const showProgressSet = (progressSet) =>{
+        let progress_div = document.querySelector(".progress")
+        let progress_divset_data = '';
+        //console.log(progress_div)
 
-    // Initialize an empty string to hold the HTML content for the progress div
-    let progress_divset_data = '';
-
-    // Sort the progressSet array in descending order of prices
-    progressSet = progressSet.sort((a, b) => b.price - a.price);
-
-    // Loop through each item in the sorted progressSet array
-    progressSet.forEach((item, index) => {
-        // Check if the item's price matches specific values to apply different formatting
-        if (item.price == 10000 || item.price == 100000 || item.price == 400000 || item.price == 1000000) {
-            // Format the item's price with commas
-            item.price = item.price.toLocalString();
-
-            // Append a div element with class "progress-in1" and formatted price to the HTML string
-            progress_divset_data += `
+        progressSet = progressSet.sort((a,b)=> b.price-a.price);
+        progressSet.forEach((item,index)=>{
+           if(item.price == 10000 || item.price == 100000 ||
+             item.price == 400000 || item.price == 1000000)
+             {
+                item.price = item.price.toLocaleString();
+                //console.log(item.price)  
+                progress_divset_data += `
                 <div class="progress-in1">£ ${item.price}</div>
-            `;
-        } else {
-            // Format the item's price with commas
-            item.price = item.price.toLocalString();
-
-            // Append a div element with class "progress-in" and formatted price to the HTML string
-            progress_divset_data += `
+            `
+            }
+            else{
+            // console.log(item)    
+                item.price = item.price.toLocaleString();
+                //console.log(item.price)  
+                progress_divset_data += `
                 <div class="progress-in">£ ${item.price}</div>
-            `;
-        }
-    });
+                ` 
+            }
+        })
+        progress_div.innerHTML = progress_divset_data;
+            
+    }
+     showProgressSet(progressSet)
 
-    // Update the inner HTML of the progress div with the generated progress steps
-    progress_div.innerHTML = progress_divset_data;
-};
+     let currentQuestion = 1;
+     let score = 0;
+     //target ,y question
 
+     const question = document.querySelector(".question-container p")
+     const allAnswersCont = document.querySelector(".answer-container")
 
-// Call the showProgressSet function to display the progress steps
-showProgressSet(progressSet);
-
-let currentQuestion = 1;
-let score = 0;
-
-// Select the question container and answer container elements
-const question = document.querySelector(".question-container p");
-const allAnswersCont = document.querySelector(".answer-container");
-
-// Function to display answer options for the current question
-const setAllAnswersCont = (randomQuestion) => {
-    allAnswersCont.innerHTML = `
+    //Create a function that absorbs all options to apply to questions
+    const setAllAnswersCont = (randomQuestion) =>{
+        allAnswersCont.innerHTML = `
         <div class="answerin">
             <div class="hr"></div>
-            <p onClick="selectOption('${randomQuestion.a}', '${randomQuestion.correct}')"> 
+            <p onClick="selectOption('${randomQuestion.a}','${randomQuestion.correct}')"> 
                 <span>A.</span> ${randomQuestion.a}
             </p>
             <div class="hr"></div>
-            <p onClick="selectOption('${randomQuestion.b}', '${randomQuestion.correct}')">
+            <p onClick="selectOption('${randomQuestion.b}','${randomQuestion.correct}')">
                 <span>B.</span> ${randomQuestion.b}
             </p>
             <div class="hr"></div>
         </div>
+
         <div class="answerin">
             <div class="hr"></div>
-            <p onClick="selectOption('${randomQuestion.c}', '${randomQuestion.correct}')">
+            <p onClick="selectOption('${randomQuestion.c}','${randomQuestion.correct}')">
                 <span>C.</span> ${randomQuestion.c}
             </p>
             <div class="hr"></div>
-            <p onClick="selectOption('${randomQuestion.d}', '${randomQuestion.correct}')">
+            <p onClick="selectOption('${randomQuestion.d}','${randomQuestion.correct}')">
                 <span>D.</span> ${randomQuestion.d}
             </p>
             <div class="hr"></div>
         </div>
-    `;
-};
-
-// Function to set the current question and its answers based on the current question number
-const setQuestionAndAnswer = (currentQuestion) => {
-    let randomQuestion;
-    if (currentQuestion == 1) {
-        let random = Math.floor(Math.random() * q1set.length);
-        randomQuestion = q1set[random];
-    } else if (currentQuestion == 2) {
-        let random = Math.floor(Math.random() * q2set.length);
-        randomQuestion = q2set[random];
-    } else if (currentQuestion == 3) {
-        let random = Math.floor(Math.random() * q3set.length);
-        randomQuestion = q3set[random];
-    } else if (currentQuestion == 4) {
-        let random = Math.floor(Math.random() * q4set.length);
-        randomQuestion = q4set[random];
-    } else if (currentQuestion == 5) {
-        let random = Math.floor(Math.random() * q5set.length);
-        randomQuestion = q5set[random];
-    } else if (currentQuestion == 6) {
-        let random = Math.floor(Math.random() * q6set.length);
-        randomQuestion = q6set[random];
-    } else if (currentQuestion == 7) {
-        let random = Math.floor(Math.random() * q7set.length);
-        randomQuestion = q7set[random];
-    } else if (currentQuestion == 8) {
-        let random = Math.floor(Math.random() * q8set.length);
-        randomQuestion = q8set[random];
-    } else if (currentQuestion == 9) {
-        let random = Math.floor(Math.random() * q9set.length);
-        randomQuestion = q9set[random];
-    } else if (currentQuestion == 10) {
-        let random = Math.floor(Math.random() * q10set.length);
-        randomQuestion = q10set[random];
-    } else if (currentQuestion == 11) {
-        let random = Math.floor(Math.random() * q11set.length);
-        randomQuestion = q11set[random];
-    } else if (currentQuestion == 12) {
-        let random = Math.floor(Math.random() * q12set.length);
-        randomQuestion = q12set[random];
+      `    
     }
-
-    question.innerHTML = randomQuestion.question;
-    setAllAnswersCont(randomQuestion);
-};
-
-// Set the first question and its answers
-setQuestionAndAnswer(currentQuestion);
-
-// Function to highlight the current progress step based on the current question
-const setActiveProgressItem = (currentQuestion) => {
-    let progressSetDiv = document.querySelector(".progress");
-    let progressSetDivData = progressSetDiv.querySelectorAll("div");
-    let progressSetDivDataLength = progressSetDivData.length;
-
-    // Remove the active class from all progress steps
-    progressSetDivData.forEach((item) => {
-        item.classList.remove("active");
-    });
-
-    // Add the active class to the current progress step
-    progressSetDivData[progressSetDivDataLength - currentQuestion].classList.add("active");
-};
-
-// Highlight the first progress step
-setActiveProgressItem(currentQuestion);
-
-let timer = document.querySelector(".timer p");
-let time = 60;
-
-// Function to handle the selection of an answer option
-const selectOption = (selectedOption, correctAnswer) => {
-    if (selectedOption == correctAnswer && time > 0) {
-        currentQuestion++;
-        if (currentQuestion > 12) {
-            alert("Congratulations! You have won £1,000,000");
-            time = 0;
-            return;
+    //================================================================
+    const setQuestionAndAnswer = (currentQuestion)=>{
+        if(currentQuestion == 1) {
+            //else if(currentQuestion == 1){
+            let random = Math.floor(Math.random() * q1set.length)
+            let randomQuestion = q1set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+        }       
+               
+        
+        else if(currentQuestion == 2) {            
+            let random = Math.floor(Math.random() * q2set.length)
+            let randomQuestion = q2set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
         }
-        setActiveProgressItem(currentQuestion);
-        setQuestionAndAnswer(currentQuestion);
-        alert("Correct Answer!");
-        time = 60;
-    } else if (time <= 0) {
-        alert("Time is up");
-    } else {
-        alert("Wrong Answer");
+
+        else if(currentQuestion == 3) {            
+            let random = Math.floor(Math.random() * q3set.length)
+            let randomQuestion = q3set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+        }
+
+        else if(currentQuestion == 4) {            
+            let random = Math.floor(Math.random() * q4set.length)
+            let randomQuestion = q4set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+        }
+
+        else if(currentQuestion == 5) {            
+            let random = Math.floor(Math.random() * q5set.length)
+            let randomQuestion = q5set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+        }
+
+        else if(currentQuestion == 6) {            
+            let random = Math.floor(Math.random() * q6set.length)
+            let randomQuestion = q6set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+        }
+
+        else if(currentQuestion == 7) {            
+            let random = Math.floor(Math.random() * q7set.length)
+            let randomQuestion = q7set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+        }
+
+        else if(currentQuestion == 8) {            
+            let random = Math.floor(Math.random() * q8set.length)
+            let randomQuestion = q8set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+        }
+
+        else if(currentQuestion == 9) {            
+            let random = Math.floor(Math.random() * q9set.length)
+            let randomQuestion = q9set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)               
+        }
+
+        else if(currentQuestion == 10) {            
+            let random = Math.floor(Math.random() * q10set.length)
+            let randomQuestion = q10set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)                 
+        }
+
+        else if(currentQuestion == 11) {            
+            let random = Math.floor(Math.random() * q11set.length)
+            let randomQuestion = q11set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+                     
+        }
+
+        else if(currentQuestion == 12) {            
+            let random = Math.floor(Math.random() * q12set.length)
+            let randomQuestion = q12set[random]
+            question.innerHTML = randomQuestion.question;
+            setAllAnswersCont(randomQuestion)
+        }
     }
-};
 
-// Function to set and update the timer
-const setTimer = () => setInterval(() => {
-    if (time == 0) {
-        clearInterval(setTimer());
-        alert("Time is up");
-        return;
+    setQuestionAndAnswer(currentQuestion)
+
+    const setActiveProgressItem = (currentQuestion)=>{
+        let progressSetDiv = document.querySelector(".progress")
+        //bring all progress divs to read all prices:
+        let progressSetDivData = progressSetDiv.querySelectorAll("div")
+        let progressSetDivDataLength = progressSetDivData.length
+
+        //highlight item once is correct, deleting the previous highlighs
+        progressSetDivData.forEach((item)=>{
+            item.classList.remove("active")
+        })
+
+        progressSetDivData[progressSetDivDataLength-currentQuestion].
+        classList.add("active")
+
     }
-    time--;
-    timer.innerHTML = "Time left: 00:" + time + "s";
-}, 1000);
+    setActiveProgressItem(currentQuestion)
+    
+    //time standar per question
 
-// Start the timer
-setTimer();
+    let timer = document.querySelector(".timer p")
+    let time = 60;
 
+    //FUNCTION TO SELECT AN OPTION AND ANSWER
+    const selectOption = (
+        selectOption, answer
+    )=>{
+       // alert(selectOption + "            " + answer)
+        if(selectOption == answer && time>0){
+            currentQuestion++;
+            if(currentQuestion>12){
+                alert("Congratulations! You have won £1.000.000")
+                time = 0;
+                return;
+            }
+            setActiveProgressItem(currentQuestion)
+            setQuestionAndAnswer(currentQuestion)
+            alert("Correct Answer!")
+            time = 60;
+        }
+        else if (time<= 0){
+            alert("Time is up")
+        }
+        else{
+            alert("Wrong Answer")
+        }
+                   
+    }
+   
+
+    const setTimer = () => setInterval(
+        () =>{
+            if(time == 0){
+                cleanInterval(setTimer())
+                alert("Time is up")
+                return;
+            }
+            time--;
+            timer.innerHTML = "Time left: 00:" + time + "s";
+        }, 1000 
+    )
+    setTimer()
+    
+  
 
